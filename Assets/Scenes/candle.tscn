@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b0dnsw0f8pb8w"]
+
+[ext_resource type="Script" uid="uid://4xgu2n7oquw8" path="res://Assets/Scripts/candle.gd" id="1_e7noi"]
+[ext_resource type="Texture2D" uid="uid://btqecnq2bgte4" path="res://Assets/Sprites/Pirate Bomb/Sprites/7-Objects/6-Candle/candle_idle.png" id="3_55qj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyx8o"]
+size = Vector2(18, 37)
+
+[sub_resource type="Gradient" id="Gradient_e7noi"]
+offsets = PackedFloat32Array(0, 0.7289157)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mnm3a"]
+gradient = SubResource("Gradient_e7noi")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_6lvwv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(2, 0, 16, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_q3i40"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(2, 0, 16, 32), Rect2(18, 0, 16, 32), Rect2(34, 0, 16, 32), Rect2(50, 0, 16, 32), Rect2(66, 0, 16, 32), Rect2(82, 0, 16, 32), Rect2(82, 0, 16, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e80av"]
+_data = {
+&"RESET": SubResource("Animation_6lvwv"),
+&"idle": SubResource("Animation_q3i40")
+}
+
+[node name="Candle" type="Area2D" unique_id=1416811131]
+script = ExtResource("1_e7noi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2057679923]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tyx8o")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1767364273]
+position = Vector2(4.038968e-28, -4.7683716e-07)
+scale = Vector2(1.4687499, 1.4375)
+color = Color(0.8918686, 0.74324936, 0.48696816, 1)
+energy = 1.8
+texture = SubResource("GradientTexture2D_mnm3a")
+
+[node name="CandleAnimator" type="Node2D" parent="." unique_id=1686625347]
+
+[node name="Sprite2D" type="Sprite2D" parent="CandleAnimator" unique_id=1105275124]
+texture = ExtResource("3_55qj4")
+region_enabled = true
+region_rect = Rect2(2, 0, 16, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CandleAnimator" unique_id=605257311]
+libraries/ = SubResource("AnimationLibrary_e80av")
+autoplay = &"idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
