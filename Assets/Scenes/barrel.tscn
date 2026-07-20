@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b3fencyf0gut4"]
+
+[ext_resource type="Texture2D" uid="uid://bobannnvdodts" path="res://Assets/Sprites/Pirate Bomb/Sprites/7-Objects/12-Other Objects/Barrel.png" id="1_aukpi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fan1u"]
+radius = 21.0
+height = 44.0
+
+[node name="Area2D" type="Area2D" unique_id=2127548896]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1174745512]
+texture = ExtResource("1_aukpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972333508]
+shape = SubResource("CapsuleShape2D_fan1u")

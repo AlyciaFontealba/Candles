@@ -62,10 +62,11 @@ shape = SubResource("RectangleShape2D_tyx8o")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1767364273]
 position = Vector2(4.038968e-28, -4.7683716e-07)
-scale = Vector2(1.4687499, 1.4375)
+scale = Vector2(2.03125, 1.8437501)
 color = Color(0.8918686, 0.74324936, 0.48696816, 1)
 energy = 1.8
 texture = SubResource("GradientTexture2D_mnm3a")
+texture_scale = 1.2
 
 [node name="CandleAnimator" type="Node2D" parent="." unique_id=1686625347]
 

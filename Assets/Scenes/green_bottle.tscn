@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ccktmvgu8avc7"]
+
+[ext_resource type="Texture2D" uid="uid://co4a2pg5bx2wa" path="res://Assets/Sprites/Pirate Bomb/Sprites/7-Objects/12-Other Objects/Green Bottle.png" id="1_4414h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyx8o"]
+size = Vector2(14, 24)
+
+[node name="Area2D" type="Area2D" unique_id=2127548896]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1174745512]
+texture = ExtResource("1_4414h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972333508]
+shape = SubResource("RectangleShape2D_tyx8o")
