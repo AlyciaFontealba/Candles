@@ -8,6 +8,13 @@ var speed_multiplier = 30.0
 var jump_multiplier = -30.0
 var direction = 0
 
+var candles_collected: int = 0
+var total_candles: int = 0
+
+func _ready():
+	total_candles = get_tree().get_nodes_in_group("Candles").size()
+	
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -26,3 +33,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
 
 	move_and_slide()
+
+func add_candle():
+	candles_collected += 1
+	
+func has_all_candles() -> bool:
+	return candles_collected >= total_candles

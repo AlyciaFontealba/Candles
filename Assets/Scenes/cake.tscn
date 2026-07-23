@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d4nydr70fr4rq"]
+
+[ext_resource type="Script" uid="uid://c2x5ib754poxw" path="res://Assets/Scripts/cake.gd" id="1_ft8l7"]
+[ext_resource type="Texture2D" uid="uid://djah614roobih" path="res://Assets/Sprites/Marja's Food Icons 32x32 – Commercial/food_icons_png/cake.png" id="2_yscpl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s02ag"]
+radius = 111.0
+height = 222.0
+
+[sub_resource type="GDScript" id="GDScript_ga6b1"]
+script/source = "extends CollisionShape2D
+"
+
+[node name="Area2D" type="Area2D" unique_id=2087079887]
+script = ExtResource("1_ft8l7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1264383788]
+texture = ExtResource("2_yscpl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1784908645]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_s02ag")
+script = SubResource("GDScript_ga6b1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
