@@ -3701,7 +3701,7 @@ position = Vector2(-295, -944)
 scale = Vector2(2, 2)
 
 [node name="Candle10" parent="Candles" unique_id=743760011 groups=["Candles"] instance=ExtResource("10_mcsy5")]
-position = Vector2(1680, -671)
+position = Vector2(1681, -738)
 scale = Vector2(2, 2)
 
 [node name="Candle11" parent="Candles" unique_id=247323964 groups=["Candles"] instance=ExtResource("10_mcsy5")]
