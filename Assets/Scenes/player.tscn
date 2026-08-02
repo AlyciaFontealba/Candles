@@ -4,6 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://br5bbexlrcqtd" path="res://Assets/Sprites/Pumpkinhead Animations Pixel Art 2D/Standard/Psd_pumpkinhead_idle_and_walk.png" id="2_7dd06"]
 [ext_resource type="Script" uid="uid://kwf0kgwn4nne" path="res://Assets/Scripts/player_animator.gd" id="2_38rej"]
 
+[sub_resource type="Gradient" id="Gradient_e7noi"]
+offsets = PackedFloat32Array(0, 0.7289157)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_38rej"]
+gradient = SubResource("Gradient_e7noi")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="Animation" id="Animation_38rej"]
 length = 0.001
 tracks/0/type = "value"
@@ -104,6 +113,14 @@ height = 20.0
 script = ExtResource("1_7dd06")
 speed = 14.0
 jump_power = 18.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1015580950]
+position = Vector2(0, -23)
+scale = Vector2(1.1197917, 0.96354157)
+color = Color(0.8918686, 0.74324936, 0.48696816, 1)
+energy = 1.8
+texture = SubResource("GradientTexture2D_38rej")
+texture_scale = 1.2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=844773679]
 offset = Vector2(32, -128)

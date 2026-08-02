@@ -11,6 +11,8 @@ var direction = 0
 var candles_collected: int = 0
 var total_candles: int = 0
 
+var can_move: bool = true
+
 func _ready():
 	total_candles = get_tree().get_nodes_in_group("Candles").size()
 	
@@ -19,6 +21,12 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
+	if not can_move:
+		direction = 0
+		velocity.x = move_toward(velocity.x, 0, speed*speed_multiplier)
+		move_and_slide()
+		return
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
