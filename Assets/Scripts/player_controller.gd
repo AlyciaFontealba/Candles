@@ -3,6 +3,7 @@ class_name PlayerController
 
 @export var speed = 10.0
 @export var jump_power = 10.0
+@export var point_light: PointLight2D
 
 var speed_multiplier = 30.0
 var jump_multiplier = -30.0
@@ -41,6 +42,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
 
 	move_and_slide()
+
+func disable_light():
+	if point_light:
+		point_light.visible = false
 
 func add_candle():
 	candles_collected += 1

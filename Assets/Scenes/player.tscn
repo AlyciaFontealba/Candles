@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bxj127xlqortu" path="res://Assets/Scripts/player_controller.gd" id="1_7dd06"]
 [ext_resource type="Texture2D" uid="uid://br5bbexlrcqtd" path="res://Assets/Sprites/Pumpkinhead Animations Pixel Art 2D/Standard/Psd_pumpkinhead_idle_and_walk.png" id="2_7dd06"]
 [ext_resource type="Script" uid="uid://kwf0kgwn4nne" path="res://Assets/Scripts/player_animator.gd" id="2_38rej"]
+[ext_resource type="AudioStream" uid="uid://dm3nlhty47i48" path="res://Assets/Audio/music_loop.wav" id="4_t1xgp"]
 
 [sub_resource type="Gradient" id="Gradient_e7noi"]
 offsets = PackedFloat32Array(0, 0.7289157)
@@ -109,10 +110,11 @@ _data = {
 radius = 7.0
 height = 20.0
 
-[node name="Player" type="CharacterBody2D" unique_id=682271333]
+[node name="Player" type="CharacterBody2D" unique_id=682271333 node_paths=PackedStringArray("point_light")]
 script = ExtResource("1_7dd06")
 speed = 14.0
 jump_power = 18.0
+point_light = NodePath("PointLight2D")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1015580950]
 position = Vector2(0, -23)
@@ -145,3 +147,7 @@ region_rect = Rect2(20, 18.061, 24, 24)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450602919]
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_tyx8o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=823808546]
+stream = ExtResource("4_t1xgp")
+autoplay = true
